@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/MainFragment">
+
+    <fragment
+        android:id="@+id/MainFragment"
+        android:name="com.bluebank.bluebankapp.fragments.MainFragment"
+        android:label="@string/main_fragment_label"
+        tools:layout="@layout/fragment_main">
+
+        <action
+            android:id="@+id/action_manageAccounts"
+            app:destination="@id/ManageAccountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ManageAccountFragment"
+        android:name="com.bluebank.bluebankapp.fragments.ManageAccountsFragment"
+        android:label="@string/manage_accounts_fragment_label"
+        tools:layout="@layout/fragment_manage_accounts">
+
+        <action
+            android:id="@+id/action_back_accountManagement"
+            app:destination="@id/MainFragment" />
+        <action
+            android:id="@+id/action_accountCreation"
+            app:destination="@id/CreateAccountFragment" />
+        <action
+            android:id="@+id/action_manageTransactions"
+            app:destination="@id/ManageTransactionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/CreateAccountFragment"
+        android:name="com.bluebank.bluebankapp.fragments.CreateAccountFragment"
+        android:label="@string/create_account_fragment_label"
+        tools:layout="@layout/fragment_create_account">
+
+        <action
+            android:id="@+id/action_back_accountManagement"
+            app:destination="@id/ManageAccountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ManageTransactionFragment"
+        android:name="com.bluebank.bluebankapp.fragments.ManageTransactionsFragment"
+        android:label="@string/manage_transactions_fragment_label"
+        tools:layout="@layout/fragment_manage_transactions">
+        <argument
+            android:name="accountId"
+            app:argType="string"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_back_accountManagement"
+            app:destination="@id/ManageAccountFragment" />
+    </fragment>
+</navigation>
